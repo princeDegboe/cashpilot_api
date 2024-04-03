@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_users')->references('id')->on('users');
             $table->unsignedBigInteger('id_devis');
             $table->foreign('id_devis')->references('id')->on('devis');
+            $table->double('solde');
 
             $table->timestamps();
         });

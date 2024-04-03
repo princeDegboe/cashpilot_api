@@ -11,6 +11,7 @@ class Solde extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'id_users',
-        'id_devis'
+        'id_devis',
+        'solde'
     ];
 }

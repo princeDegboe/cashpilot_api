@@ -14,6 +14,8 @@ class Transaction extends Model
         'view',
         'amount',
         'transactionDate',
-        'type_id'
+        'type_id',
+        'categorie_id',
+        'user_id'
     ];
 }
