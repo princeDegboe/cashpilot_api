@@ -54,6 +54,12 @@ Route::prefix('v1')->group(function () {
 
         Route::get('transaction/getDetail', [UserController::class, 'getDetail']);
 
+        Route::get('transaction/delete', [UserController::class, 'deleteTransaction']);
+
+        Route::get('user/getEntreeSoldeByCategorie', [UserController::class, 'getEntreeSoldeByCategorie']);
+
+        Route::get('user/getSortieSoldeByCategorie', [UserController::class, 'getSortieSoldeByCategorie']);
+
         Route::get('/user', function (Request $request) {
             return $request->user();
         });

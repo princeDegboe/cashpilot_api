@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('id_categorie')->references('id')->on('categories');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('type_transactions');
             $table->double('solde');
 
             $table->timestamps();

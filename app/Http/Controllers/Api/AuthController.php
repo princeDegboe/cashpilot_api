@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\EmailverifyMail;
 
 class AuthController extends Controller
 {
@@ -61,22 +63,25 @@ class AuthController extends Controller
 
             $user = User::create($userData);
 
-            // $email = $user->email;
-        // $mailinfo = [
-        //     "subject"=> "Verification Adress Email",
-        //     "confirm_code"=> $user->confirm_code,
-        // ];
+            $email = $user->email;
 
-        // Mail::to($email)->send( new EmailverifyMail($mailinfo));
+            $subject = "Verification Adress Email";
+            $body =  $user->validation_code;
+            // $mailinfo = [
+            //     "subject"=> "Verification Adress Email",
+            //     "body"=> $user->confirm_code,
+            // ];
+
+            Mail::to($email)->send( new EmailverifyMail($subject,$body));
 
             return response()->json([
                 'status_message' => "Reste à valider",
                 'status_code' => 200,
                 'user' => $user,
             ]);
-        } catch (Exception $e) {
-            return response()->json($e);
-        }
+            } catch (Exception $e) {
+                return response()->json($e);
+            }
     }
 
     public function login(Request $request)

@@ -12,6 +12,7 @@ class CategorieForUser extends Model
     protected $fillable = [
         'id_categorie',
         'id_user',
-        'solde'
+        'solde',
+        'type_id'
     ];
 }
