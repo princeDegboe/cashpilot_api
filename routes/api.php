@@ -52,6 +52,8 @@ Route::prefix('v1')->group(function () {
 
         Route::get('transaction/soldeSortie', [UserController::class, 'getSoldeSortie']);
 
+        Route::get('transaction/getDetail', [UserController::class, 'getDetail']);
+
         Route::get('/user', function (Request $request) {
             return $request->user();
         });
