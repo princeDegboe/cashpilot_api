@@ -72,7 +72,7 @@ class AuthController extends Controller
             //     "body"=> $user->confirm_code,
             // ];
 
-            Mail::to($email)->send( new EmailverifyMail($subject,$body));
+            // Mail::to($email)->send( new EmailverifyMail($subject,$body));
 
             return response()->json([
                 'status_message' => "Reste à valider",

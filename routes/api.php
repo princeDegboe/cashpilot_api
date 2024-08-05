@@ -33,9 +33,6 @@ Route::prefix('v1')->group(function () {
 
     Route::get('getDevis', [UserController::class, 'getDevis']);
 
-
-
-
     Route::middleware(['auth:sanctum'])->group(function () {
 
         Route::put('user/update', [UserController::class, 'update']);
